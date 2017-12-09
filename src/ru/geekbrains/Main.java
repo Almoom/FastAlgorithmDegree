@@ -11,8 +11,7 @@ public class Main {
             System.out.println("Последовательно через Enter введите число и его степень");
             int number = scanner.nextInt();
             int degree = scanner.nextInt();
-            int k;
-            int vol=1;
+            int k = 1;
             here2:while (degree>1){
                 if (degree%2 == 0) {
                     number = number*number;
@@ -20,12 +19,11 @@ public class Main {
                     continue here2;
                 }else{
                     degree--;
-                    k = number;
-                    vol = vol*k;
+                    k = k*number;
                     continue here2;
                 }
             }
-            System.out.println(number*vol);
+            System.out.println(number*k);
             System.out.println("Повторить игру еще раз? 1 – да / 0 – нет");
             repeatQuestion = scanner.nextInt();
             if (repeatQuestion==1) continue here;
