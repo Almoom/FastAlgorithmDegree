@@ -11,38 +11,21 @@ public class Main {
             System.out.println("Последовательно через Enter введите число и его степень");
             int number = scanner.nextInt();
             int degree = scanner.nextInt();
-            int counter = 0;
-            int vol = degree;
-            if (degree%2 == 0) {
-                do {
-                    for (int i = 1; i < vol; i++) {
-                        vol = vol / 2;
-                        counter++;
-                    }
+            int k;
+            int vol=1;
+            here2:while (degree>1){
+                if (degree%2 == 0) {
+                    number = number*number;
+                    degree = degree/2;
+                    continue here2;
+                }else{
+                    degree--;
+                    k = number;
+                    vol = vol*k;
+                    continue here2;
                 }
-                while (vol > 1);
-            }else{
-                vol = vol-1;
-                do {
-                    for (int i = 1; i < vol; i++) {
-                        vol = vol / 2;
-                        counter++;
-                    }
-                }
-                while (vol > 1);
             }
-            int rez = number;
-            if (degree%2 == 0){
-                for (int i = 0; i < counter; i++) {
-                    rez = rez*rez;
-                }
-            }else{
-                for (int i = 0; i < counter; i++) {
-                    rez = rez*rez;
-                }
-                rez = rez*number;
-            }
-            System.out.println(counter + " " + rez);
+            System.out.println(number*vol);
             System.out.println("Повторить игру еще раз? 1 – да / 0 – нет");
             repeatQuestion = scanner.nextInt();
             if (repeatQuestion==1) continue here;
